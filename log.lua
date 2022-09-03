@@ -12,8 +12,8 @@ local maxFileLength
 local function getMaxFileLength()
     if maxFileLength ~= nil then return maxFileLength end
     if not pcall(function()
-        local settingsService = require("./libs/settingsManager") --[[@as SettingsService]]
-        maxFileLength = settingsService.setget("MaxFileLength", nil, 10000)
+        local settingsManager = require("./libs/settingsManager") --[[@as SettingsService]]
+        maxFileLength = settingsManager.setget("MaxFileLength", nil, 10000)
     end) then
         maxFileLength = 10000
     end
@@ -48,8 +48,8 @@ end
 local function getErrorFile()
     if errorFilePath ~= nil then return errorFilePath end
     if not pcall(function()
-        local settingsService = require("./libs/settingsManager") --[[@as SettingsService]]
-        errorFilePath = settingsService.setget("ErrorFile", nil, "Logs/Errors.lua")
+        local settingsManager = require("./libs/settingsManager") --[[@as SettingsService]]
+        errorFilePath = settingsManager.setget("ErrorFile", nil, "Logs/Errors.lua")
     end) then
         errorFilePath = "Logs/Errors.lua"
     end
