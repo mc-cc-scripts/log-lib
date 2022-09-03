@@ -1,2 +1,33 @@
 # log-lib
-A Library for Logs
+
+A Library to ease logging of data
+
+```lua
+local log = require('./libs/log')
+local filePath = './Output.lua'
+local content = {
+    key1 = 'value1',
+    key2 = 'value2'
+}
+-- write into file:
+log.write(content, filePath, "w+")
+
+-- write into default error File, incl. traceback:
+log.ErrorHandler(content, nil)
+```
+
+### write
+
+```lua
+log.write(content: <table|string>, filePath: <string>, dataAcces <string>)
+DataAccess:
+"w" | "w+" | "a" | "a+"
+```
+
+### ErrorHandler
+
+```lua
+log.ErrorHandler(content: <table|string>, filePath: <string|nil>, trackback : <boolean|nil>)
+DataAccess:
+"w" | "w+" | "a" | "a+"
+```
