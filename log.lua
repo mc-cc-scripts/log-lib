@@ -1,7 +1,7 @@
 --@requires settingsManager
 
 
----@class Log All IO Log writing should be hanlded here
+---@class Log All IO Log writing should be handled here
 --- settings Used:
 --- MaxFileLength & ErrorFile
 Log = {}
@@ -76,7 +76,7 @@ end
 
 ---@param content string
 ---@param filePath string | nil
----@param traceback boolean
+---@param traceback boolean | nil
 function Log.ErrorHandler(content, filePath, traceback)
     filePath = filePath or getErrorFile();
     local errorFile = io.open(filePath, "a+")

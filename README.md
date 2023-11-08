@@ -27,7 +27,5 @@ DataAccess:
 ### ErrorHandler
 
 ```lua
-log.ErrorHandler(content: <table|string>, filePath: <string|nil>, trackback : <boolean|nil>)
-DataAccess:
-"w" | "w+" | "a" | "a+"
+log.ErrorHandler(content: <table|string>, filePath: <string|nil>, traceback: <boolean|nil>)
 ```
