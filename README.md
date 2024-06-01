@@ -17,9 +17,9 @@ log.ErrorHandler(content, nil)
 ```
 
 ### write
-
+Default dataAccess is `"w+"`
 ```lua
-log.write(content: <table|string>, filePath: <string>, dataAcces <string>)
+log.write(content: <table|string>, filePath: <string>, dataAccess: <string>)
 DataAccess:
 "w" | "w+" | "a" | "a+"
 ```
