@@ -1,10 +1,10 @@
---@requires settingsManager
+---@class Log
+Log = {}
 
 
----@class Log All IO Log writing should be handled here
+-- All IO Log writing should be handled here
 --- settings Used:
 --- MaxFileLength & ErrorFile
-Log = {}
 
 local errorFilePath
 local maxFileLength
@@ -12,8 +12,7 @@ local maxFileLength
 local function getMaxFileLength()
     if maxFileLength ~= nil then return maxFileLength end
     if not pcall(function()
-        local settingsManager = require("./libs/settingsManager") --[[@as SettingsService]]
-        maxFileLength = settingsManager.setget("MaxFileLength", nil, 10000)
+        maxFileLength = settings.get("MaxFileLength", 10000)
     end) then
         maxFileLength = 10000
     end
@@ -48,8 +47,7 @@ end
 local function getErrorFile()
     if errorFilePath ~= nil then return errorFilePath end
     if not pcall(function()
-        local settingsManager = require("./libs/settingsManager") --[[@as SettingsService]]
-        errorFilePath = settingsManager.setget("ErrorFile", nil, "Logs/Errors.lua")
+        errorFilePath = settings.set("ErrorFile", "Logs/Errors.lua")
     end) then
         errorFilePath = "Logs/Errors.lua"
     end
